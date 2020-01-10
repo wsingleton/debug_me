@@ -43,6 +43,8 @@ public class Menu {
 		}
 
 		case 3:
+			// add Leaderboard.load() to print leader board
+			Leaderboard.load();
 			System.out.println(Leaderboard.printLeaders());
 			Driver.main(new String[0]);
 			break;
