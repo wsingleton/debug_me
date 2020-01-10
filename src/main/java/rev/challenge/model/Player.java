@@ -1,5 +1,7 @@
 package rev.challenge.model;
 
+import java.util.Objects;
+
 public class Player {
 
 	private String name;
@@ -27,5 +29,27 @@ public class Player {
 	}
 	public Player() {
 		this.weapon=Weapon.makeWeapon("");
+	}
+
+	@Override
+	public String toString() {
+		return
+				name;
+
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Player player = (Player) o;
+		return Float.compare(player.health, health) == 0 &&
+				Objects.equals(name, player.name) &&
+				Objects.equals(weapon, player.weapon);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, health, weapon);
 	}
 }

@@ -1,5 +1,6 @@
 package rev.challenge.instructions;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 import rev.challenge.Driver;
@@ -44,7 +45,8 @@ public class Menu {
 	private static void start(Scanner s) {
 		System.out.println("what is your name?");
 		Player p = new Player();
-		p.setName(s.nextLine());
+		p.setName(s.next());
+		System.out.println("Hello " + p);
 		p.setHealth(500.0f);
 		System.out.println("here is the Map");
 		Map m = new Map(p);
@@ -57,5 +59,6 @@ public class Menu {
 		System.out.println("you lose");
 		System.exit(0);
 	}
+
 
 }
