@@ -62,7 +62,7 @@ public class Menu {
 		System.exit(0);
 	}
 
-	private static void keepGoing(Scanner s){
+	public static void keepGoing(Scanner s){
 		while(Player.getInstance().getHealth() > 0) {
 			System.out.println(m);
 			System.out.println("where would you like to move?");

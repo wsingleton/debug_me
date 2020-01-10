@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import rev.challenge.action.Battle;
 import rev.challenge.instructions.Leaderboard;
+import rev.challenge.instructions.Menu;
 
 public class Map {
 	private Space[][] spaces;
@@ -170,7 +171,7 @@ public class Map {
 			System.out.println("Dude, that's out of bounds!  Stay in bounds, yo!");
 			currentX = holdX;
 			currentY = holdY;
-
+			Menu.keepGoing(new Scanner(System.in));
 		}
 	}
 }
