@@ -13,7 +13,6 @@ public class Map {
 	private int currentY;
 	private int rooms;
 	private int complete;
-	private int score=30;
 
 	public Player getPlayer() {
 		return player;
@@ -24,11 +23,12 @@ public class Map {
 	}
 
 	public void reduceScore() {
-		score--;
+		int currentScore=player.getScore();
+		player.setScore(--currentScore);
 	}
 	
 	public void printScore() {
-		System.out.println("your score is "+score);
+		System.out.println("your score is "+player.getScore());
 	}
 	
 	public Map(Player player) {
@@ -75,49 +75,68 @@ public class Map {
 	public void move(String s) {
 		switch (s.toLowerCase()) {
 		case "w":
-			down();
-			break;
-		case "s":
 			up();
 			break;
+		case "s":
+			down();
+			break;
 		case "a":
-			right();
+			left();
 			break;
 		case "d":
-			left();
+			right();
 			break;
 		default:
 			break;
 		}
 		checkWeapon();
 		reduceScore();
-		if(score==0) {
-			System.out.println("you lose, your score is 0");
-			System.exit(0);
-		}
+		System.out.println(player.getScore());
+		if(player.getScore()==0) {youLose();}
 	}
 
 	private void down() {
-		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(false);
-		spaces[++currentY][currentX].setCurrent(true);
+		if (currentY!=4) {
+			spaces[currentY][currentX].setCurrent(false);
+			spaces[currentY][currentX].setVisited(true);
+			spaces[++currentY][currentX].setCurrent(true);
+		}
+		else {
+			System.out.println("You cannot walk through walls!");
+		}
 	}
 
 	private void up() {
-		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(true);
+		if (currentY!=0) {
+			spaces[currentY][currentX].setCurrent(false);
+			spaces[currentY][currentX].setVisited(true);
+			spaces[--currentY][currentX].setCurrent(true);
+		}
+		else {
+			System.out.println("You cannot walk through walls!");
+		}
 	}
 
 	private void right() {
-		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(true);
-		spaces[currentY][++currentX].setCurrent(true);
+		if (currentX!=4) {
+			spaces[currentY][currentX].setCurrent(false);
+			spaces[currentY][currentX].setVisited(true);
+			spaces[currentY][++currentX].setCurrent(true);
+		}
+		else {
+			System.out.println("You cannot walk through walls!");
+		}
 	}
 
 	private void left() {
-		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(true);
-		spaces[currentY][--currentX].setCurrent(true);
+		if (currentX!=0) {
+			spaces[currentY][currentX].setCurrent(false);
+			spaces[currentY][currentX].setVisited(true);
+			spaces[currentY][--currentX].setCurrent(true);
+		}
+		else {
+			System.out.println("You cannot walk through walls!");
+		}
 	}
 
 	public void consequences(Scanner s) {
@@ -137,7 +156,7 @@ public class Map {
 			System.out.println("you win");
 			printScore();
 			Leaderboard.load();
-			Leaderboard.add(new User(player.getName(), score));
+			Leaderboard.add(new User(player.getName(), player.getScore()));
 			System.out.println(Leaderboard.printLeaders());
 			Leaderboard.save();
 			System.exit(0);
@@ -148,5 +167,9 @@ public class Map {
 			player.setWeapon(spaces[currentY][currentX].getWeapon());
 			System.out.println("you got the sword!!!");
 		}
+	}
+	public static void youLose() {
+		System.out.println("you lose, your score is 0");
+		System.exit(0);
 	}
 }

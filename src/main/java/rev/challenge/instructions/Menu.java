@@ -6,6 +6,8 @@ import rev.challenge.Driver;
 import rev.challenge.model.Map;
 import rev.challenge.model.Player;
 
+import static rev.challenge.instructions.HelpMe.showInstructions;
+
 public class Menu {
 
 	public static void logo() {
@@ -31,7 +33,7 @@ public class Menu {
 		switch(x) {
 		case 1: start(s);
 		break;
-		case 2: System.out.println("TODO: INSTRUCTIONS");
+		case 2: showInstructions();
 		break;
 		case 3:
 			System.out.println(Leaderboard.printLeaders());
@@ -42,10 +44,11 @@ public class Menu {
 		}
 	}
 	private static void start(Scanner s) {
-		System.out.println("what is your name?");
 		Player p = new Player();
+		System.out.println("what is your name?");
 		p.setName(s.nextLine());
 		p.setHealth(500.0f);
+		p.setScore(30);
 		System.out.println("here is the Map");
 		Map m = new Map(p);
 		while(p.getHealth() > 0) {

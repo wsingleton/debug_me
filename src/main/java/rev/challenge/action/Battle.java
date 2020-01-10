@@ -3,6 +3,7 @@ package rev.challenge.action;
 import java.util.Scanner;
 
 import rev.challenge.model.Enemy;
+import rev.challenge.model.Map;
 import rev.challenge.model.Player;
 
 public class Battle {
@@ -17,6 +18,10 @@ public class Battle {
 				playerAttack(p, e);
 			} else {
 				System.out.println("invalid");
+				int currentScore=p.getScore();
+				p.setScore(--currentScore);
+				System.out.println(p.getScore());
+				if(p.getScore()==0) {Map.youLose();}
 			}
 			EnemyAttack(p, e);
 		}
