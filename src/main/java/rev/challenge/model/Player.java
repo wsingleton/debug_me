@@ -5,7 +5,16 @@ public class Player {
 	private String name;
 	private float health;
 	private Weapon weapon;
-	
+
+	public Player(String name, float health, Weapon weapon) {
+		this.name = name;
+		this.health = health;
+		this.weapon = weapon;
+	}
+
+	public Player(String name) {
+		this.name = name;
+	}
 
 	public Weapon getWeapon() {
 		return weapon;
