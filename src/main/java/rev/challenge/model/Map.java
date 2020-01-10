@@ -75,16 +75,16 @@ public class Map {
 	public void move(String s) {
 		switch (s.toLowerCase()) {
 		case "w":
-			down();
-			break;
-		case "s":
 			up();
 			break;
+		case "s":
+			down();
+			break;
 		case "a":
-			right();
+			left();
 			break;
 		case "d":
-			left();
+			right();
 			break;
 		default:
 			break;
@@ -98,26 +98,39 @@ public class Map {
 	}
 
 	private void down() {
-		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(false);
-		spaces[++currentY][currentX].setCurrent(true);
+		if(currentY != spaces.length - 1) {
+			spaces[currentY][currentX].setCurrent(false);
+			spaces[currentY][currentX].setVisited(true);
+			spaces[++currentY][currentX].setCurrent(true);
+		}
+		else System.out.println("You have reached the end of the map");
 	}
 
 	private void up() {
-		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(true);
+		if(currentY != 0) {
+			spaces[currentY][currentX].setCurrent(false);
+			spaces[currentY][currentX].setVisited(true);
+			spaces[--currentY][currentX].setCurrent(true);
+		}
+		else System.out.println("You have reached the end of the map");
 	}
 
 	private void right() {
-		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(true);
-		spaces[currentY][++currentX].setCurrent(true);
+		if(currentX != spaces[1].length - 1) {
+			spaces[currentY][currentX].setCurrent(false);
+			spaces[currentY][currentX].setVisited(true);
+			spaces[currentY][++currentX].setCurrent(true);
+		}
+		else System.out.println("You have reached the end of the map");
 	}
 
 	private void left() {
-		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(true);
-		spaces[currentY][--currentX].setCurrent(true);
+		if(currentX != 0) {
+			spaces[currentY][currentX].setCurrent(false);
+			spaces[currentY][currentX].setVisited(true);
+			spaces[currentY][--currentX].setCurrent(true);
+		}
+		else System.out.println("You have reached the end of the map");
 	}
 
 	public void consequences(Scanner s) {
