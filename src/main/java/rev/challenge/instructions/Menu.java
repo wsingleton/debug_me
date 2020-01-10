@@ -10,24 +10,34 @@ import static java.lang.System.exit;
 
 public class Menu {
 
+	public static final String ANSI_RESET = "\u001B[0m";
+	public static final String ANSI_BLACK = "\u001B[30m";
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_YELLOW = "\u001B[33m";
+	public static final String ANSI_BLUE = "\u001B[34m";
+	public static final String ANSI_PURPLE = "\u001B[35m";
+	public static final String ANSI_CYAN = "\u001B[36m";
+	public static final String ANSI_WHITE = "\u001B[37m";
+
 	public static void logo() {
-		System.out.println("\t\t\t\t |||||    |||||   ||||    || ||   ||| ");
-		System.out.println("\t\t\t\t ||  ||   ||      || ||   || ||   |   ");
-		System.out.println("\t\t\t\t ||  ||   |||||   ||||    || ||   | |||");
-		System.out.println("\t\t\t\t ||  ||   ||      || ||   || ||   |  |");
-		System.out.println("\t\t\t\t |||||    |||||   ||||     |||    ||||");
-		System.out.println("");
-		System.out.println("\t\t\t\t               ||    ||     |||||    ");
-		System.out.println("\t\t\t\t              ||||  ||||    ||       ");
-		System.out.println("\t\t\t\t              ||  ||  ||    |||||    ");
-		System.out.println("\t\t\t\t              ||      ||    ||       ");
-		System.out.println("\t\t\t\t              ||      ||    |||||    ");
+		System.out.println(ANSI_RED + 	"\t\t\t\t |||||    |||||   ||||    || ||   ||| ");
+		System.out.println(				"\t\t\t\t ||  ||   ||      || ||   || ||   |   ");
+		System.out.println(				"\t\t\t\t ||  ||   |||||   ||||    || ||   | |||");
+		System.out.println(				"\t\t\t\t ||  ||   ||      || ||   || ||   |  |");
+		System.out.println(				"\t\t\t\t |||||    |||||   ||||     |||    ||||");
+		System.out.println(				"");
+		System.out.println(				"\t\t\t\t               ||    ||     |||||    ");
+		System.out.println(				"\t\t\t\t              ||||  ||||    ||       ");
+		System.out.println(				"\t\t\t\t              ||  ||  ||    |||||    ");
+		System.out.println(				"\t\t\t\t              ||      ||    ||       ");
+		System.out.println(				"\t\t\t\t              ||      ||    |||||    " + ANSI_RESET);
 	}
 	public static void menu(Scanner s) {
 
 		boolean success = false;
 		while(!success) {
-			System.out.println("\n +=======================================================================+\n");
+			System.out.println(ANSI_CYAN + "\n +=======================================================================+\n" + ANSI_RESET);
 			System.out.println("\tSELECT ONE OF THE FOLLOWING");
 			System.out.println("(1) START");
 			System.out.println("(2) INSTRUCTIONS");
@@ -67,7 +77,7 @@ public class Menu {
 			m.move(s.next());
 			m.consequences(s);
 		}
-		System.out.println("You Died");
+		System.out.println(ANSI_RED + "You Died" + ANSI_RESET);
 		exit(0);
 	}
 

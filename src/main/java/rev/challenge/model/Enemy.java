@@ -28,8 +28,8 @@ public class Enemy {
 		this.type = type;
 		this.strength = strength;
 	}
-	public Enemy() { this(20,"goblin",3); }
-	//public Enemy() { this(1, "goblin", 3); }
+	//public Enemy() { this(20,"goblin",3); }
+	public Enemy() { this(1, "goblin", 3); }
 	@Override
 	public String toString() {
 		return "Enemy [health=" + health + ", type=" + type + ", strength=" + strength + "]";

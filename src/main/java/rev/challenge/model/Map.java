@@ -7,6 +7,18 @@ import rev.challenge.action.Battle;
 import rev.challenge.instructions.Leaderboard;
 
 public class Map {
+
+	public static final String ANSI_RESET = "\u001B[0m";
+	public static final String ANSI_BLACK = "\u001B[30m";
+	public static final String ANSI_RED = "\u001B[31m";
+	public static final String ANSI_GREEN = "\u001B[32m";
+	public static final String ANSI_YELLOW = "\u001B[33m";
+	public static final String ANSI_BLUE = "\u001B[34m";
+	public static final String ANSI_PURPLE = "\u001B[35m";
+	public static final String ANSI_CYAN = "\u001B[36m";
+	public static final String ANSI_WHITE = "\u001B[37m";
+
+
 	private Space[][] spaces;
 	private Player player;
 	private int currentX;
@@ -92,8 +104,8 @@ public class Map {
 		checkWeapon();
 		reduceScore();
 		if(score==0) {
-			System.out.println("you lose, your score is 0");
-			System.exit(0);
+			System.out.println(ANSI_RED + "you lose, your score is 0" + ANSI_RESET);
+			//System.exit(0);
 		}
 	}
 
@@ -137,6 +149,7 @@ public class Map {
 		if(spaces[currentY][currentX] instanceof Room) {
 			if(((Room)spaces[currentY][currentX]).getEnemy()!=null) {
 				Battle.battle(player, ((Room)spaces[currentY][currentX]).getEnemy(), s);
+				
 				complete++;
 			win();
 			}
@@ -147,7 +160,7 @@ public class Map {
 	}
 	private void win() {
 		if(complete==rooms) {
-			System.out.println("you win");
+			System.out.println(ANSI_BLUE + "you win" + ANSI_RESET);
 			printScore();
 			Leaderboard.load();
 			Leaderboard.add(new User(player.getName(), score));
