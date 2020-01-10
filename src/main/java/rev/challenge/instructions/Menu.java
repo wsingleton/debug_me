@@ -28,7 +28,12 @@ public class Menu {
 		System.out.println("(2) INSTRUCTIONS");
 		System.out.println("(3) LEADERBOARD");
 		System.out.println("(4) END");
-		int x = s.nextInt();
+		String temp =  s.next();
+		if (!temp.matches("^[1-4]+$")){
+			System.out.println("invalid input, must be 1-4");
+			menu(s);
+		}
+		int x = Integer.parseInt(temp);
 		switch(x) {
 		case 1: start(s);
 		break;
