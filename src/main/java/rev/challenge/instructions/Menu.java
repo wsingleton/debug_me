@@ -42,9 +42,13 @@ public class Menu {
 		}
 	}
 	private static void start(Scanner s) {
+		// add s.nextLine to get player name 
+		s.nextLine();
 		System.out.println("what is your name?");
 		Player p = new Player();
-		p.setName(s.nextLine());
+		String name = s.nextLine();
+		p.setName(name);
+
 		p.setHealth(500.0f);
 		System.out.println("here is the Map");
 		Map m = new Map(p);
