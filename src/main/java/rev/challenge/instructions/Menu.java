@@ -6,6 +6,8 @@ import rev.challenge.Driver;
 import rev.challenge.model.Map;
 import rev.challenge.model.Player;
 
+import static rev.challenge.instructions.HelpMe.showInstructions;
+
 public class Menu {
 
 	public static void logo() {
@@ -31,7 +33,7 @@ public class Menu {
 		switch(x) {
 		case 1: start(s);
 		break;
-		case 2: System.out.println("TODO: INSTRUCTIONS");
+		case 2: showInstructions(); menu(s);
 		break;
 		case 3:
 			System.out.println(Leaderboard.printLeaders());
