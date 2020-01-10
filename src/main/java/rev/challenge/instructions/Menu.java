@@ -1,5 +1,6 @@
 package rev.challenge.instructions;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import rev.challenge.Driver;
@@ -29,21 +30,25 @@ public class Menu {
 		System.out.println("(2) INSTRUCTIONS");
 		System.out.println("(3) LEADERBOARD");
 		System.out.println("(4) END");
-		int x = s.nextInt();
-		switch(x) {
-		case 1:
-			start(s);
+		try {
+			int x = s.nextInt();
+			switch(x) {
+			case 1:
+				start(s);
+				break;
+			case 2:
+				System.out.println("TODO: INSTRUCTIONS");
+				showInstructions();
+				Driver.appRunning = true;
 			break;
-		case 2:
-			System.out.println("TODO: INSTRUCTIONS");
-			showInstructions();
-			Driver.appRunning = true;
-		break;
-		case 3:
-			System.out.println(Leaderboard.printLeaders());
-			Driver.appRunning = false;
-			break;
-		default: Driver.appRunning = false;
+			case 3:
+				System.out.println(Leaderboard.printLeaders());
+				Driver.appRunning = true;
+				break;
+			default: Driver.appRunning = false;
+			}
+		}catch (InputMismatchException e) {
+			Driver.main(new String[0]);
 		}
 	}
 	private static void start(Scanner s) {

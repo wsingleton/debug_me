@@ -48,6 +48,7 @@ public class Leaderboard {
 	}
 
 	private static void organize() {
+		load();
 		Collections.sort(leaders);
 		for (int i = 0; i < leaders.size(); i++) {
 			leaders.get(i).setPlace(i + 1);

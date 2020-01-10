@@ -30,7 +30,7 @@ public class Battle {
 		double d = p.getWeapon().getDamage();
 		if (b) {
 			e.setHealth(e.getHealth() - (int) d);
-			System.out.println("you dealt " + d + "damage");
+			System.out.println("you dealt " + d + "damage ");
 		}else System.out.println("you missed your attack");
 		System.out.println("the enemies new health is " + e.getHealth());
 	}
