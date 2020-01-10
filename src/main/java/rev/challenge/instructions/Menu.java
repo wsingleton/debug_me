@@ -7,6 +7,7 @@ import rev.challenge.model.Map;
 import rev.challenge.model.Player;
 
 public class Menu {
+	public static String quit = "";
 
 	public static void logo() {
 		System.out.println("\t\t\t\t |||||    |||||   ||||    || ||   ||| ");
@@ -32,9 +33,19 @@ public class Menu {
 		case 1: start(s);
 		break;
 		case 2: HelpMe.showInstructions();
-		break;
+			Scanner scanner = new Scanner(System.in);
+			while(!quit.equals("q") || !quit.equals("Q")){
+				System.out.print("\nPlease press q to quit back to the main menu: ");
+				quit = scanner.nextLine();
+				if(quit.equals("q") || quit.equals("Q")){
+					Driver.main(new String[0]);
+				}
+			}
+			break;
 		case 3:
-			System.out.println(Leaderboard.printLeaders());
+			if(Leaderboard.printLeaders() != null) {
+				System.out.println(Leaderboard.printLeaders());
+			}
 			Driver.main(new String[0]);
 			break;
 		case 4: break;

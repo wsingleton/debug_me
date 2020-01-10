@@ -28,8 +28,9 @@ public class Enemy {
 		this.type = type;
 		this.strength = strength;
 	}
+	//change back to 20
 	public Enemy() {
-		this(20,"goblin",3);
+		this(5,"goblin",3);
 	}
 	@Override
 	public String toString() {

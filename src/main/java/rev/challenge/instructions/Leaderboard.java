@@ -41,25 +41,37 @@ public class Leaderboard {
 	public static String printLeaders() {
 		organize();
 		String line = "";
-		for (User u : leaders) {
-			line += u.toString() + "\n";
+		if(leaders != null) {
+			for (User u : leaders) {
+				if (u != null) {
+					line += u.toString() + "\n";
+				}
+			}
+
+		}
+		else{
+			return "There are no players in the leaderboard!";
 		}
 		return line;
 	}
 
 	private static void organize() {
-		Collections.sort(leaders);
-		for (int i = 0; i < leaders.size(); i++) {
-			leaders.get(i).setPlace(i + 1);
+		if(leaders != null) {
+			Collections.sort(leaders);
+			for (int i = 0; i < leaders.size(); i++) {
+				leaders.get(i).setPlace(i + 1);
+			}
 		}
 	}
 
 	public static void add(User u) {
 		leaders.add(u);
 		organize();
-		for (User user : leaders) {
-			if (user.getPlace() > 10) {
-				leaders.remove(user);
+		if(leaders != null) {
+			for (User user : leaders) {
+				if (user.getPlace() > 10) {
+					leaders.remove(user);
+				}
 			}
 		}
 	}
