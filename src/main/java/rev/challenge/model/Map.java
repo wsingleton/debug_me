@@ -113,7 +113,6 @@ public class Map {
 			spaces[b][a].setCurrent(true);
 		}
 		else {
-			System.out.println(" x : " + a + " y: " + b);
 			spaces[b][a].setCurrent(true);
 		}
 
@@ -134,7 +133,7 @@ public class Map {
 			spaces[b][a].setCurrent(true);
 		}
 		else {
-			System.out.println(" x : " + a + " y: " + b);
+
 			spaces[b][a].setCurrent(true);
 		}
 
@@ -152,7 +151,7 @@ public class Map {
 			spaces[b][a].setCurrent(true);
 		}
 		else {
-			System.out.println(" x : " + a + " y: " + b);
+
 			spaces[b][a].setCurrent(true);
 		}
 
@@ -163,7 +162,7 @@ public class Map {
 		spaces[currentY][currentX].setVisited(true);
 
 
-		// fix left out of board 
+		// fix left out of board
 		int a = --currentX;
 		int b = currentY;
 		if(a < 0 || b < 0){
@@ -172,7 +171,7 @@ public class Map {
 			spaces[b][a].setCurrent(true);
 		}
 		else {
-			System.out.println(" x : " + a + " y: " + b);
+
 			spaces[b][a].setCurrent(true);
 		}
 	}
@@ -182,6 +181,8 @@ public class Map {
 			if(((Room)spaces[currentY][currentX]).getEnemy()!=null) {
 				Battle.battle(player, ((Room)spaces[currentY][currentX]).getEnemy(), s);
 				complete++;
+
+
 			win();
 			}
 		if(spaces[currentY][currentX].getWeapon()!=null)

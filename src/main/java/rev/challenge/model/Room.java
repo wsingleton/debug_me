@@ -13,6 +13,10 @@ public class Room extends Space{
 
 	@Override
 	public String toString() {
+		// fix current position when attack 
+		if(isCurrent()){
+			return "P";
+		}
 		if(isVisited()) {
 			return "S";
 			
