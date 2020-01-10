@@ -56,12 +56,14 @@ public class Leaderboard {
 
 	public static void add(User u) {
 		leaders.add(u);
+		List<User> toRemove = new ArrayList();
 		organize();
 		for (User user : leaders) {
 			if (user.getPlace() > 10) {
-				leaders.remove(user);
+				toRemove.add(user);
 			}
 		}
+		leaders.remove(toRemove);
 	}
 
 	public static void initialize() {

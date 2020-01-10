@@ -2,6 +2,7 @@ package rev.challenge;
 
 import java.util.Scanner;
 
+import rev.challenge.instructions.Leaderboard;
 import rev.challenge.instructions.Menu;
 
 public class Driver {

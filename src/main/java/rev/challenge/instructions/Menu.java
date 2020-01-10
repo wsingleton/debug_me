@@ -8,6 +8,7 @@ import rev.challenge.model.Player;
 
 public class Menu {
 
+
 	public static void logo() {
 		System.out.println("\t\t\t\t |||||    |||||   ||||    || ||   ||| ");
 		System.out.println("\t\t\t\t ||  ||   ||      || ||   || ||   |   ");
@@ -53,7 +54,7 @@ public class Menu {
 	private static void start(Scanner s) {
 		System.out.println("what is your name?");
 		Player p = new Player();
-		p.setName(s.nextLine());
+		p.setName(s.next());
 		p.setHealth(500.0f);
 		System.out.println("here is the Map");
 		Map m = new Map(p);
