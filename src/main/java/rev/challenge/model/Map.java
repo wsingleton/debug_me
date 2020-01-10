@@ -9,11 +9,12 @@ import rev.challenge.instructions.Leaderboard;
 public class Map {
 	private Space[][] spaces;
 	private Player player;
-	private int currentX;
-	private int currentY;
+	private int currentX, holdX;
+	private int currentY, holdY;
 	private int rooms;
 	private int complete;
 	private int score=30;
+	private StackTraceElement[] ste;
 
 	public Player getPlayer() {
 		return player;
@@ -73,21 +74,28 @@ public class Map {
 	}
 
 	public void move(String s) {
-		switch (s.toLowerCase()) {
-		case "w":
-			up();
-			break;
-		case "s":
-			down();
-			break;
-		case "a":
-			left();
-			break;
-		case "d":
-			right();
-			break;
-		default:
-			break;
+
+		try{
+			switch (s.toLowerCase()) {
+				case "w":
+					up();
+					break;
+				case "s":
+					down();
+					break;
+				case "a":
+					left();
+					break;
+				case "d":
+					right();
+					break;
+				default:
+					break;
+			}
+		}catch (ArrayIndexOutOfBoundsException e){
+			StackTraceElement[] ste = e.getStackTrace();
+			System.out.println(ste[0].getMethodName());
+			e.getStackTrace();
 		}
 		checkWeapon();
 		reduceScore();
@@ -97,25 +105,33 @@ public class Map {
 		}
 	}
 
-	private void down() {
+	private void down() throws ArrayIndexOutOfBoundsException {
+		holdX = currentX;
+		holdY = currentY;
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
 		spaces[++currentY][currentX].setCurrent(true);
 	}
 
-	private void up() {
+	private void up() throws ArrayIndexOutOfBoundsException {
+		holdX = currentX;
+		holdY = currentY;
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
 		spaces[--currentY][currentX].setCurrent(true);
 	}
 
-	private void right() {
+	private void right() throws ArrayIndexOutOfBoundsException {
+		holdX = currentX;
+		holdY = currentY;
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
 		spaces[currentY][++currentX].setCurrent(true);
 	}
 
-	private void left() {
+	private void left() throws ArrayIndexOutOfBoundsException {
+		holdX = currentX;
+		holdY = currentY;
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
 		spaces[currentY][--currentX].setCurrent(true);
@@ -145,9 +161,16 @@ public class Map {
 		}
 	}
 	private void checkWeapon() {
-		if(spaces[currentY][currentX].getWeapon()!=null) {
-			player.setWeapon(spaces[currentY][currentX].getWeapon());
-			System.out.println("you got the sword!!!");
+		try {
+			if (spaces[currentY][currentX].getWeapon() != null) {
+				player.setWeapon(spaces[currentY][currentX].getWeapon());
+				System.out.println("you got the sword!!!");
+			}
+		}catch (ArrayIndexOutOfBoundsException e){
+			System.out.println("Dude, that's out of bounds!  Stay in bounds, yo!");
+			currentX = holdX;
+			currentY = holdY;
+
 		}
 	}
 }

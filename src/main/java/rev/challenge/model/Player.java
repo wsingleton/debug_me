@@ -5,7 +5,7 @@ public class Player {
 	private String name;
 	private float health;
 	private Weapon weapon;
-	
+	private static Player p = new Player();
 
 	public Weapon getWeapon() {
 		return weapon;
@@ -28,4 +28,8 @@ public class Player {
 	public Player() {
 		this.weapon=Weapon.makeWeapon("");
 	}
+	public static Player getInstance(){
+		return p;
+	}
+
 }

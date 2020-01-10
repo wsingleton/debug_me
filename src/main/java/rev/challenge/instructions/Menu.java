@@ -6,7 +6,11 @@ import rev.challenge.Driver;
 import rev.challenge.model.Map;
 import rev.challenge.model.Player;
 
+import static rev.challenge.model.Player.*;
+
 public class Menu {
+
+	private static Map m;
 
 	public static void logo() {
 		System.out.println("\t\t\t\t |||||    |||||   ||||    || ||   ||| ");
@@ -44,12 +48,22 @@ public class Menu {
 	}
 	private static void start(Scanner s) {
 		System.out.println("what is your name?");
-		Player p = new Player();
-		p.setName(s.nextLine());
-		p.setHealth(500.0f);
+		Player.getInstance().setName(s.nextLine());
+		Player.getInstance().setHealth(500.0f);
 		System.out.println("here is the Map");
-		Map m = new Map(p);
-		while(p.getHealth() > 0) {
+		m = new Map(Player.getInstance());
+		while(Player.getInstance().getHealth() > 0) {
+			System.out.println(m);
+			System.out.println("where would you like to move?");
+			m.move(s.next());
+			m.consequences(s);
+		}
+		System.out.println("you lose");
+		System.exit(0);
+	}
+
+	private static void keepGoing(Scanner s){
+		while(Player.getInstance().getHealth() > 0) {
 			System.out.println(m);
 			System.out.println("where would you like to move?");
 			m.move(s.next());
