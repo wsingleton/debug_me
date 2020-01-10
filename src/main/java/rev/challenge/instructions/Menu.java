@@ -31,7 +31,16 @@ public class Menu {
 		switch(x) {
 		case 1: start(s);
 		break;
-		case 2: System.out.println("TODO: INSTRUCTIONS");
+		case 2:
+			System.out.println("Controls: wasd for up, left, down and right, respectively");
+			System.out.println("\nThere are enemies in rooms marked with 'R', you must");
+			System.out.println("go to each room with an enemy and defeat them.  Once in the");
+			System.out.println("same room as them you enter battle with them, where you attack");
+			System.out.println("by typing 'attack' or heal by typing 'heal'.  Typos will count");
+			System.out.println("as a move but will not accomplish anything, so be careful.");
+			System.out.println("\nType anything to return to the main menu.");
+			String foo = s.next();
+			Driver.main(new String[0]);
 		break;
 		case 3:
 			System.out.println(Leaderboard.printLeaders());
