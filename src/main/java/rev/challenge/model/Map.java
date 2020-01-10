@@ -73,18 +73,21 @@ public class Map {
 	}
 
 	public void move(String s) {
+//		if(currentX != 4){
+//			up();
+//		}
 		switch (s.toLowerCase()) {
 		case "w":
-			down();
-			break;
-		case "s":
 			up();
 			break;
+		case "s":
+			down();
+			break;
 		case "a":
-			right();
+			left();
 			break;
 		case "d":
-			left();
+			right();
 			break;
 		default:
 			break;
@@ -101,17 +104,32 @@ public class Map {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(false);
 		spaces[++currentY][currentX].setCurrent(true);
+
+
 	}
 
 	private void up() {
-		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(true);
+		if (currentY == 0) {
+			spaces[currentY][currentX].setCurrent(true);
+			System.out.println("You cannot pass!");
+		} else {
+			spaces[currentY][currentX].setCurrent(false);
+			spaces[currentY][currentX].setVisited(true);
+			spaces[--currentY][currentX].setVisited(true);
+		}
 	}
 
 	private void right() {
-		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(true);
-		spaces[currentY][++currentX].setCurrent(true);
+
+		if(currentX ==4){
+			spaces[currentY][currentX].setCurrent(true);
+			System.out.println("You cannot pass!");
+		}
+		else {
+			spaces[currentY][currentX].setCurrent(false);
+			spaces[currentY][currentX].setVisited(true);
+			spaces[currentY][++currentX].setCurrent(true);
+		}
 	}
 
 	private void left() {

@@ -37,4 +37,14 @@ public class Player {
 	public Player() {
 		this.weapon=Weapon.makeWeapon("");
 	}
+
+
+	@Override
+	public String toString() {
+		return "Player{" +
+				"name='" + name + '\'' +
+				", health=" + health +
+				", weapon=" + weapon +
+				'}';
+	}
 }

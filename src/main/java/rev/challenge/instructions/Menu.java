@@ -36,6 +36,7 @@ public class Menu {
 		case 2: showInstructions(); menu(s);
 		break;
 		case 3:
+			Leaderboard.load();
 			System.out.println(Leaderboard.printLeaders());
 			Driver.main(new String[0]);
 			break;
@@ -46,8 +47,9 @@ public class Menu {
 	private static void start(Scanner s) {
 		System.out.println("what is your name?");
 		Player p = new Player();
-		p.setName(s.nextLine());
+		p.setName(s.next());
 		p.setHealth(500.0f);
+		System.out.println(p);
 		System.out.println("here is the Map");
 		Map m = new Map(p);
 		while(p.getHealth() > 0) {
