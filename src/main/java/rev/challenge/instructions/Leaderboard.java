@@ -66,6 +66,7 @@ public class Leaderboard {
 
 	public static void add(User u) {
 		leaders.add(u);
+
 		organize();
 		if(leaders != null) {
 			for (User user : leaders) {
