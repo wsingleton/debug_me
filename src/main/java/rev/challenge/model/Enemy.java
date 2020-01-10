@@ -30,7 +30,7 @@ public class Enemy {
 	}
 	//change back to 20
 	public Enemy() {
-		this(5,"goblin",3);
+		this(1,"goblin",3);
 	}
 	@Override
 	public String toString() {

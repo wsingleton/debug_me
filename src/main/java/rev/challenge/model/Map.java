@@ -77,16 +77,20 @@ public class Map {
 	public void move(String s) {
 		switch (s.toLowerCase()) {
 		case "w":
-			up();
+			if(currentY != 0)
+				up();
 			break;
 		case "s":
-			down();
+			if(currentY != 5)
+				down();
 			break;
 		case "a":
-			left();
+			if(currentX != 0)
+				left();
 			break;
 		case "d":
-			right();
+			if(currentX != 5)
+				right();
 			break;
 		default:
 			break;

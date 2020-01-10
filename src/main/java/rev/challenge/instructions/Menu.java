@@ -8,6 +8,8 @@ import rev.challenge.model.Player;
 
 public class Menu {
 	public static String quit = "";
+	public static String name = "";
+
 
 	public static void logo() {
 		System.out.println("\t\t\t\t |||||    |||||   ||||    || ||   ||| ");
@@ -30,7 +32,10 @@ public class Menu {
 		System.out.println("(4) END");
 		int x = s.nextInt();
 		switch(x) {
-		case 1: start(s);
+		case 1:
+			Scanner scanner = new Scanner(System.in);
+
+			start(s);
 		break;
 		case 2: HelpMe.showInstructions();
 			Scanner scanner = new Scanner(System.in);
@@ -43,9 +48,9 @@ public class Menu {
 			}
 			break;
 		case 3:
-			if(Leaderboard.printLeaders() != null) {
+				Leaderboard.load();
 				System.out.println(Leaderboard.printLeaders());
-			}
+
 			Driver.main(new String[0]);
 			break;
 		case 4: break;
