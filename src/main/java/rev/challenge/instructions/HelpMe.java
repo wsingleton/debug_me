@@ -1,10 +1,15 @@
 package rev.challenge.instructions;
 
+import rev.challenge.Driver;
+
+import java.util.Scanner;
+
 public class HelpMe {
 
 	
 	
-	public static void showInstructions() {
+	public static void showInstructions(Scanner s) {
+		s.nextLine();
 		System.out.println("\t\t\tWELCOME TO THE DEBUG ME GAME");
 		System.out.println("  HERE YOU WILL AIM TO DEBUG THE GAME");
 		System.out.println("AND BRING IT BACK INTO A PLAYABLE STATE.\n");
@@ -27,5 +32,9 @@ public class HelpMe {
 		System.out.println("DURING A MOVING PHASE.\n");
 		System.out.println("DEBUG ME AND COMPLETE THE MISSION TO RECEIVE");
 		System.out.println("FULL CREDIT FOR THIS CHALLENGE.");
+		System.out.println("\n");
+		System.out.println("PRESS ENTER TO RETURN TO MAIN MENU.");
+		s.nextLine();
+		Driver.main(new String[0]);
 	}
 }

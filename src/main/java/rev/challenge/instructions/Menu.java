@@ -33,10 +33,13 @@ public class Menu {
 		switch(x) {
 		case 1: start(s);
 		break;
-		case 2: showInstructions();
+		case 2: showInstructions(s);
 		break;
 		case 3:
 			System.out.println(Leaderboard.printLeaders());
+			System.out.println("Press enter to return to menu.");
+			s.nextLine();
+			s.nextLine();
 			Driver.main(new String[0]);
 			break;
 		case 4: break;
@@ -44,8 +47,8 @@ public class Menu {
 		}
 	}
 	private static void start(Scanner s) {
-		Player p = new Player();
 		s.nextLine();
+		Player p = new Player();
 		System.out.println("what is your name?");
 		p.setName(s.nextLine());
 		p.setHealth(500.0f);
