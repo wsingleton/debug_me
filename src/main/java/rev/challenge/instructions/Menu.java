@@ -1,5 +1,6 @@
 package rev.challenge.instructions;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import rev.challenge.Driver;
@@ -27,6 +28,7 @@ public class Menu {
 		System.out.println("(2) INSTRUCTIONS");
 		System.out.println("(3) LEADERBOARD");
 		System.out.println("(4) END");
+		try{
 		int x = s.nextInt();
 		switch(x) {
 		case 1: start(s);
@@ -41,7 +43,7 @@ public class Menu {
 			break;
 		case 4: break;
 		default: Driver.main(new String[0]);
-		}
+		}}catch(InputMismatchException e){Driver.main(new String[0]);}
 	}
 	private static void start(Scanner s) {
 		System.out.println("what is your name?");
