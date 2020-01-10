@@ -45,11 +45,14 @@ public class Battle {
 			} else System.out.println("the enemy missed their attack");
 		}
 		System.out.println("your new health is " + p.getHealth() + "\n");
+		if(e.getHealth() == 0){
+			
+		}
 	}
 
 	private static void playerHeal(Player p) {
 		System.out.println("your current health is " + p.getHealth());
-		if(p.getHealth() < 30){
+		if(p.getHealth() < 500.0f){  //original health
 			p.setHealth((float) (p.getHealth() + Math.random() * 5));
 		}
 		System.out.println("your new health is " + p.getHealth() + "\n");
