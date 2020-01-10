@@ -24,6 +24,7 @@ public class Leaderboard {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
+			System.out.println("Something went very wrong?? load is very broken");
 			e.printStackTrace();
 		}
 
@@ -34,6 +35,7 @@ public class Leaderboard {
 			output.writeObject(leaders);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			System.out.println("something broke the save");
 			e.printStackTrace();
 		}
 	}

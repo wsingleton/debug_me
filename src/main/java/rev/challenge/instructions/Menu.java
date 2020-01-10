@@ -38,7 +38,7 @@ public class Menu {
 				case "1":
 					start(s);
 					break;
-				case "2": //System.out.println("TODO: INSTRUCTIONS");
+				case "2":
 					HelpMe.showInstructions();
 					break;
 				case "3":
@@ -49,7 +49,6 @@ public class Menu {
 					exit(0);
 					break;
 				default:
-					//Driver.main(new String[0]);
 					System.out.println("\nInvalid option, please choose again.");
 			}
 		}
@@ -68,7 +67,6 @@ public class Menu {
 			m.move(s.next());
 			m.consequences(s);
 		}
-		System.out.println("you lose");
 		exit(0);
 	}
 

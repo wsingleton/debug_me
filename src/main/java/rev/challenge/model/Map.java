@@ -103,7 +103,7 @@ public class Map {
 			spaces[currentY][currentX].setVisited(true);
 			spaces[++currentY][currentX].setCurrent(true);
 		}
-		else System.out.println("You have reached the end of the map");
+		else System.out.println("You have reached the edge of the map");
 	}
 
 	private void up() {
@@ -112,7 +112,7 @@ public class Map {
 			spaces[currentY][currentX].setVisited(true);
 			spaces[--currentY][currentX].setCurrent(true);
 		}
-		else System.out.println("You have reached the end of the map");
+		else System.out.println("You have reached the edge of the map");
 	}
 
 	private void right() {
@@ -121,7 +121,7 @@ public class Map {
 			spaces[currentY][currentX].setVisited(true);
 			spaces[currentY][++currentX].setCurrent(true);
 		}
-		else System.out.println("You have reached the end of the map");
+		else System.out.println("You have reached the edge of the map");
 	}
 
 	private void left() {
@@ -130,7 +130,7 @@ public class Map {
 			spaces[currentY][currentX].setVisited(true);
 			spaces[currentY][--currentX].setCurrent(true);
 		}
-		else System.out.println("You have reached the end of the map");
+		else System.out.println("You have reached the edge of the map");
 	}
 
 	public void consequences(Scanner s) {
@@ -140,10 +140,14 @@ public class Map {
 				complete++;
 			win();
 			}
+	/*
 		if(spaces[currentY][currentX].getWeapon()!=null)
 			player.setWeapon(spaces[currentY][currentX].getWeapon());
-		
+	 */
+
+			checkWeapon();
 		}
+
 	}
 	private void win() {
 		if(complete==rooms) {
