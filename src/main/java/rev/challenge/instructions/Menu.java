@@ -45,6 +45,7 @@ public class Menu {
 	}
 	private static void start(Scanner s) {
 		Player p = new Player();
+		s.nextLine();
 		System.out.println("what is your name?");
 		p.setName(s.nextLine());
 		p.setHealth(500.0f);
