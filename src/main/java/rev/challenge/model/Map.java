@@ -74,16 +74,16 @@ public class Map {
 
 	public void move(String s) {
 		switch (s.toLowerCase()) {
-		case "w":
+		case "s":
 			down();
 			break;
-		case "s":
+		case "w":
 			up();
 			break;
-		case "a":
+		case "d":
 			right();
 			break;
-		case "d":
+		case "a":
 			left();
 			break;
 		default:
