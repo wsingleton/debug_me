@@ -31,12 +31,12 @@ public class Leaderboard {
 	}
 
 	public static void save() {
-		try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("./leader.txt"));) {
-			output.writeObject(leaders);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try (ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("./leader.txt"));) {
+//			output.writeObject(leaders);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 	public static String printLeaders() {
