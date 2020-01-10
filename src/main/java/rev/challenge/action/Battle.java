@@ -20,7 +20,6 @@ public class Battle {
 				System.out.println("invalid");
 				int currentScore=p.getScore();
 				p.setScore(--currentScore);
-				System.out.println(p.getScore());
 				if(p.getScore()==0) {Map.youLose();}
 			}
 			EnemyAttack(p, e);

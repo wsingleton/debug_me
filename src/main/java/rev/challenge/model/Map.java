@@ -91,7 +91,6 @@ public class Map {
 		}
 		checkWeapon();
 		reduceScore();
-		System.out.println(player.getScore());
 		if(player.getScore()==0) {youLose();}
 	}
 
