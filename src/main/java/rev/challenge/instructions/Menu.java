@@ -46,6 +46,9 @@ public class Menu {
 			// add Leaderboard.load() to print leader board
 			Leaderboard.load();
 			System.out.println(Leaderboard.printLeaders());
+			s.nextLine();
+			System.out.println("enter anything to go back to main menu");
+			String pass = s.nextLine();
 			Driver.main(new String[0]);
 			break;
 		case 4: break;

@@ -73,6 +73,7 @@ public class Map {
 	}
 
 	public void move(String s) {
+
 		switch (s.toLowerCase()) {
 			//change letter assign to moving method
 		case "s":
@@ -102,7 +103,21 @@ public class Map {
 		spaces[currentY][currentX].setCurrent(false);
 		// set visited = true for move down
 		spaces[currentY][currentX].setVisited(true);
-		spaces[++currentY][currentX].setCurrent(true);
+
+		// fix godown out of board
+		int a = currentX;
+		int b = ++currentY;
+		if(a >= 5 || b >= 5){
+			b= --currentY;
+			System.out.println(" you go out of the board");
+			spaces[b][a].setCurrent(true);
+		}
+		else {
+			System.out.println(" x : " + a + " y: " + b);
+			spaces[b][a].setCurrent(true);
+		}
+
+
 	}
 
 
@@ -110,7 +125,17 @@ public class Map {
 	private void up() {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
-		spaces[--currentY][currentX].setCurrent(true);
+		// fix go up out of board 
+		int a = currentX;
+		int b = --currentY;
+		if(a < 0 || b < 0){
+			b= ++currentY;
+			System.out.println(" you go out of the board");
+		}
+		else {
+			System.out.println(" x : " + a + " y: " + b);
+		}
+		spaces[b][a].setCurrent(true);
 	}
 
 	private void right() {
