@@ -32,10 +32,15 @@ public class Menu {
 		case 1: start(s);
 		break;
 		case 2: System.out.println("TODO: INSTRUCTIONS");
+			HelpMe.showInstructions(); // To log instructions to the screen to have them handy.
+			start(s);
 		break;
 		case 3:
 			System.out.println(Leaderboard.printLeaders());
-			Driver.main(new String[0]);
+//			Driver.main(new String[0]);
+//			Leaderboard.initialize(); // to get registered leaders.
+//			Leaderboard.printLeaders();
+//
 			break;
 		case 4: break;
 		default: Driver.main(new String[0]);
@@ -47,6 +52,7 @@ public class Menu {
 		Player p = new Player();
 		p.setName(name);
 		p.setHealth(500.0f);
+		System.out.println("The current player is " + p.getName());
 		System.out.println("here is the Map");
 		Map m = new Map(p);
 		while(p.getHealth() > 0) {

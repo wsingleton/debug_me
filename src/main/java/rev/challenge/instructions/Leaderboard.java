@@ -13,7 +13,8 @@ import rev.challenge.model.User;
 
 public class Leaderboard {
 
-	private static List<User> leaders;
+//	private static List<User> leaders;
+	private static List<User> leaders; // changing to public to make it accessible
 
 	@SuppressWarnings("unchecked")
 	public static void load() {
