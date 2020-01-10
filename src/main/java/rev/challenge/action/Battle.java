@@ -9,11 +9,11 @@ public class Battle {
 
 	public static void battle(Player p, Enemy e, Scanner scan) {
 		while (e.getHealth() > 0&&p.getHealth()>0) {
-			System.out.println("heal or attack");
+			System.out.println("To heal press h or to attack press a");
 			String str = scan.next();
-			if (str.equals("heal")) {
+			if (str.equals("h")) {
 				playerHeal(p);
-			} else if (str.equals("attack")) {
+			} else if (str.equals("a")) {
 				playerAttack(p, e);
 			} else {
 				System.out.println("invalid");
