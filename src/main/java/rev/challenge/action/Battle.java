@@ -33,7 +33,7 @@ public class Battle {
 		double d = p.getWeapon().getDamage();
 		if (b) {
 			e.setHealth(e.getHealth() - (int) d);
-			System.out.println("you dealt " + d + "damage");
+			System.out.println("\u001B[33myou dealt " + d + " damage\u001B[0m");
 		}else System.out.println("you missed your attack");
 		System.out.println("the enemy's new health is " + e.getHealth());
 	}
@@ -43,7 +43,7 @@ public class Battle {
 		boolean b = x == 1 ? true : false;
 		if (!b) {
 			p.setHealth((float)(p.getHealth() - e.getStrength()));
-		System.out.println("you took " + e.getStrength() + " damage");
+		System.out.println("\u001B[31myou took " + e.getStrength() + " damage\u001B[0m");
 		} else System.out.println("the enemy missed their attack");
 		System.out.println("your new health is " + p.getHealth());
 
@@ -52,7 +52,7 @@ public class Battle {
 	private static void playerHeal(Player p) {
 		System.out.println("your current health is " + p.getHealth());
 		p.setHealth((float) (p.getHealth() + Math.random() * 5));
-		System.out.println("your new health is " + p.getHealth());
+		System.out.println("\u001B[36myour new health is " + p.getHealth() +"\u001B[0m");
 	}
 
 	

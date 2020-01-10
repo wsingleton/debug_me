@@ -3,6 +3,7 @@ package rev.challenge.model;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import rev.challenge.Driver;
 import rev.challenge.action.Battle;
 import rev.challenge.instructions.Leaderboard;
 
@@ -151,23 +152,26 @@ public class Map {
 	}
 	private void win() {
 		if(complete==rooms) {
-			System.out.println("you win");
+			System.out.println("\u001B[45m\u001B[30myou win\u001B[0m");
 			printScore();
 			Leaderboard.load();
 			Leaderboard.add(new User(player.getName(), player.getScore()));
-			System.out.println(Leaderboard.printLeaders());
 			Leaderboard.save();
-			System.exit(0);
+			Driver.main(new String[0]);
 		}
 	}
 	private void checkWeapon() {
 		if(spaces[currentY][currentX].getWeapon()!=null) {
 			player.setWeapon(spaces[currentY][currentX].getWeapon());
-			System.out.println("you got the sword!!!");
+			boolean firstPrint=true;
+			if (firstPrint) {
+				System.out.println("\u001B[34myou got the sword!!!\u001B[0m");
+				firstPrint=false;
+			}
 		}
 	}
 	public static void youLose() {
-		System.out.println("you lose, your score is 0");
+		System.out.println("\u001B[41m\u001B[30myou lose, your score is 0\u001B[0m");
 		System.exit(0);
 	}
 }
