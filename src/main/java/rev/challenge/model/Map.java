@@ -25,6 +25,10 @@ public class Map {
 
 	public void reduceScore() {
 		score--;
+		if (score == 0){
+			System.out.println("you lose, your score is 0");
+			System.exit(0);
+		}
 	}
 	
 	public void printScore() {
@@ -91,10 +95,7 @@ public class Map {
 		}
 		checkWeapon();
 		reduceScore();
-		if(score==0) {
-			System.out.println("you lose, your score is 0");
-			System.exit(0);
-		}
+
 	}
 
 	private void down() {
