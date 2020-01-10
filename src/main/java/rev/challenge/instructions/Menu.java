@@ -8,7 +8,6 @@ import rev.challenge.model.Player;
 
 public class Menu {
 	public static String quit = "";
-	public static String name = "";
 
 
 	public static void logo() {
@@ -33,8 +32,6 @@ public class Menu {
 		int x = s.nextInt();
 		switch(x) {
 		case 1:
-			Scanner scanner = new Scanner(System.in);
-
 			start(s);
 		break;
 		case 2: HelpMe.showInstructions();
@@ -50,8 +47,14 @@ public class Menu {
 		case 3:
 				Leaderboard.load();
 				System.out.println(Leaderboard.printLeaders());
-
-			Driver.main(new String[0]);
+			Scanner scanner1 = new Scanner(System.in);
+			while(!quit.equals("q") || !quit.equals("Q")) {
+				System.out.print("\nPlease press q to quit back to the main menu: ");
+				quit = scanner1.nextLine();
+				if (quit.equals("q") || quit.equals("Q")) {
+					Driver.main(new String[0]);
+				}
+			}
 			break;
 		case 4: break;
 		default: Driver.main(new String[0]);

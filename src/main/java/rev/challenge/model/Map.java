@@ -14,6 +14,8 @@ public class Map {
 	private int rooms;
 	private int complete;
 	private int score=30;
+	public static String name = "";
+
 
 	public Player getPlayer() {
 		return player;
@@ -81,7 +83,7 @@ public class Map {
 				up();
 			break;
 		case "s":
-			if(currentY != 5)
+			if(currentY <= 4)
 				down();
 			break;
 		case "a":
@@ -106,26 +108,39 @@ public class Map {
 	private void down() {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(false);
-		spaces[++currentY][currentX].setCurrent(true);
+		if(currentY < 4) {
+			++currentY;
+		}
+		spaces[currentY][currentX].setCurrent(true);
+
 	}
 
 	private void up() {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
-		spaces[--currentY][currentX].setCurrent(true);
+		if(currentY != 0) {
+			--currentY;
+		}
+		spaces[currentY][currentX].setCurrent(true);
 
 	}
 
 	private void right() {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
-		spaces[currentY][++currentX].setCurrent(true);
+		if(currentX < 4) {
+			++currentX;
+		}
+		spaces[currentY][currentX].setCurrent(true);
 	}
 
 	private void left() {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
-		spaces[currentY][--currentX].setCurrent(true);
+		if(currentX != 0 ) {
+			--currentX;
+		}
+		spaces[currentY][currentX].setCurrent(true);
 	}
 
 	public void consequences(Scanner s) {
