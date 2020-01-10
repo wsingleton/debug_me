@@ -22,13 +22,13 @@ public class Weapon {
 	}
 	private Weapon() {
 		name="fists";
-		damage=1;
+		damage=10;
 	}
 	
 	public static Weapon makeWeapon(String w) {
 		switch(w.toLowerCase()) {
 		case "sword":
-			return new Weapon("sword", 5);
+			return new Weapon("sword", 55);
 		default:
 			return new Weapon();
 		}
