@@ -140,10 +140,6 @@ public class Map {
 				complete++;
 			win();
 			}
-	/*
-		if(spaces[currentY][currentX].getWeapon()!=null)
-			player.setWeapon(spaces[currentY][currentX].getWeapon());
-	 */
 
 			checkWeapon();
 		}
@@ -163,6 +159,7 @@ public class Map {
 	private void checkWeapon() {
 		if(spaces[currentY][currentX].getWeapon()!=null) {
 			player.setWeapon(spaces[currentY][currentX].getWeapon());
+			spaces[currentY][currentX].setWeapon(null);
 			System.out.println("you got the sword!!!");
 		}
 	}

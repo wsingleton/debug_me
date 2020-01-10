@@ -1,5 +1,7 @@
 package rev.challenge.action;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Scanner;
 
 import rev.challenge.model.Enemy;
@@ -17,7 +19,6 @@ public class Battle {
 				playerAttack(p, e);
 			} else {
 				System.out.println("invalid");
-
 			}
 			EnemyAttack(p, e);
 		}
@@ -48,7 +49,10 @@ public class Battle {
 
 	private static void playerHeal(Player p) {
 		System.out.println("your current health is " + p.getHealth());
-		p.setHealth((float) (p.getHealth() + Math.random() * 5));
+		BigDecimal heal = BigDecimal.valueOf((float) (p.getHealth() + Math.random() * 5));
+		float health = heal.setScale(1, RoundingMode.HALF_UP).floatValue();
+		if (health > 500 )p.setHealth( 500 );
+		else p.setHealth(health);
 		System.out.println("your new health is " + p.getHealth());
 	}
 

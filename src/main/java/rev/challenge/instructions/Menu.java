@@ -67,6 +67,7 @@ public class Menu {
 			m.move(s.next());
 			m.consequences(s);
 		}
+		System.out.println("You Died");
 		exit(0);
 	}
 
