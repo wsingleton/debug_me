@@ -29,7 +29,7 @@ public class Enemy {
 		this.strength = strength;
 	}
 	public Enemy() {
-		this(20,"goblin",3);
+		this(1,"goblin",3);
 	}
 	@Override
 	public String toString() {
