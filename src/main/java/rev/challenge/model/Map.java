@@ -105,7 +105,7 @@ public class Map {
 		reduceScore();
 		if(score==0) {
 			System.out.println(ANSI_RED + "you lose, your score is 0" + ANSI_RESET);
-			//System.exit(0);
+			System.exit(0);
 		}
 	}
 
@@ -149,7 +149,7 @@ public class Map {
 		if(spaces[currentY][currentX] instanceof Room) {
 			if(((Room)spaces[currentY][currentX]).getEnemy()!=null) {
 				Battle.battle(player, ((Room)spaces[currentY][currentX]).getEnemy(), s);
-				
+				((Room)spaces[currentY][currentX]).setEnemy(null);
 				complete++;
 			win();
 			}
