@@ -31,7 +31,8 @@ public class Menu {
 		switch(x) {
 		case 1: start(s);
 		break;
-		case 2: System.out.println("TODO: INSTRUCTIONS");
+		case 2:
+			HelpMe.showInstructions();
 		break;
 		case 3:
 			System.out.println(Leaderboard.printLeaders());
