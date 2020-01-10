@@ -2,9 +2,11 @@ package rev.challenge.instructions;
 
 public class HelpMe {
 
+	public HelpMe(){
+		super();
+	}
 	
-	
-	public static void showInstructions() {
+	public void showInstructions() {
 		System.out.println("\t\t\tWELCOME TO THE DEBUG ME GAME");
 		System.out.println("  HERE YOU WILL AIM TO DEBUG THE GAME");
 		System.out.println("AND BRING IT BACK INTO A PLAYABLE STATE.\n");

@@ -31,8 +31,17 @@ public class Menu {
 		switch(x) {
 		case 1: start(s);
 		break;
-		case 2: System.out.println("TODO: INSTRUCTIONS");
-		break;
+		case 2: {
+			// add the function to show instruction and go back to main menu
+			HelpMe a = new HelpMe();
+			a.showInstructions();
+			s.nextLine();
+			System.out.println("enter anything to go back to main menu");
+			String pass = s.nextLine();
+			Driver.main(new String[0]);
+			break;
+		}
+
 		case 3:
 			System.out.println(Leaderboard.printLeaders());
 			Driver.main(new String[0]);
