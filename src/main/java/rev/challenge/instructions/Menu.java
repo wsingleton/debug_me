@@ -43,7 +43,6 @@ public class Menu {
 					break;
 				case "3":
 					System.out.println(Leaderboard.printLeaders());
-					//Driver.main(new String[0]);
 					break;
 				case "4":
 					System.out.println("\nShutting Down Program");
