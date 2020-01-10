@@ -42,7 +42,7 @@ public class Menu {
 		}
 	}
 	private static void start(Scanner s) {
-		// add s.nextLine to get player name 
+		// add s.nextLine to get player name
 		s.nextLine();
 		System.out.println("what is your name?");
 		Player p = new Player();
