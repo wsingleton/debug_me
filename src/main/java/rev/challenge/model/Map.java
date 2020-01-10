@@ -102,7 +102,7 @@ public class Map {
 			spaces[++currentY][currentX].setCurrent(true);
 		}
 		else {
-			System.out.println("You cannot walk through walls!");
+			System.out.println("\u001B[35mYou cannot walk through walls!\u001B[0m");
 		}
 	}
 
@@ -113,7 +113,7 @@ public class Map {
 			spaces[--currentY][currentX].setCurrent(true);
 		}
 		else {
-			System.out.println("You cannot walk through walls!");
+			System.out.println("\u001B[35mYou cannot walk through walls!\u001B[0m");
 		}
 	}
 
@@ -124,7 +124,7 @@ public class Map {
 			spaces[currentY][++currentX].setCurrent(true);
 		}
 		else {
-			System.out.println("You cannot walk through walls!");
+			System.out.println("\u001B[35mYou cannot walk through walls!\u001B[0m");
 		}
 	}
 
@@ -135,7 +135,7 @@ public class Map {
 			spaces[currentY][--currentX].setCurrent(true);
 		}
 		else {
-			System.out.println("You cannot walk through walls!");
+			System.out.println("\u001B[35mYou cannot walk through walls!\u001B[0m");
 		}
 	}
 
