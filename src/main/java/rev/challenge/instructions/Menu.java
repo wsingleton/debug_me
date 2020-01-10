@@ -35,6 +35,7 @@ public class Menu {
 		case 2: System.out.println("TODO: INSTRUCTIONS");
 		break;
 		case 3:
+			Leaderboard.load();
 			System.out.println(Leaderboard.printLeaders());
 			Driver.main(new String[0]);
 			break;
