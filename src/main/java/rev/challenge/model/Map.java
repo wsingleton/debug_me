@@ -156,6 +156,8 @@ public class Map {
 		if(spaces[currentY][currentX] instanceof Room) {
 			if(((Room)spaces[currentY][currentX]).getEnemy()!=null) {
 				Battle.battle(player, ((Room)spaces[currentY][currentX]).getEnemy(), s);
+				//may cause issues
+				((Room)spaces[currentY][currentX]).setEnemy(null);
 				complete++;
 			win();
 			}
