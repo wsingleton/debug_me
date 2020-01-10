@@ -161,7 +161,20 @@ public class Map {
 	private void left() {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
-		spaces[currentY][--currentX].setCurrent(true);
+
+
+		// fix left out of board 
+		int a = --currentX;
+		int b = currentY;
+		if(a < 0 || b < 0){
+			a = ++currentX;
+			System.out.println(" you go out of the board");
+			spaces[b][a].setCurrent(true);
+		}
+		else {
+			System.out.println(" x : " + a + " y: " + b);
+			spaces[b][a].setCurrent(true);
+		}
 	}
 
 	public void consequences(Scanner s) {
