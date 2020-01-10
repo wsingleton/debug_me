@@ -12,8 +12,8 @@ public class Driver {
 		Menu.menu(scan);
 		scan.close();
 //		Leaderboard.initialize();
-//		Leaderboard.load();
-//		System.out.println(Leaderboard.printLeaders());
+////		Leaderboard.load();
+////		System.out.println(Leaderboard.printLeaders());
 	}
 	
 
