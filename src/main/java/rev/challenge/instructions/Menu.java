@@ -7,7 +7,7 @@ import rev.challenge.model.Map;
 import rev.challenge.model.Player;
 
 public class Menu {
-	public static String quit = "";
+	public static int quit = 0;
 	public static String name = "";
 
 
@@ -26,39 +26,47 @@ public class Menu {
 		System.out.println("\t\t\t\t              ||      ||    |||||    ");
 	}
 	public static void menu(Scanner s) {
+		int x;
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("\tSELECT ONE OF THE FOLLOWING");
 		System.out.println("(1) START");
 		System.out.println("(2) INSTRUCTIONS");
 		System.out.println("(3) LEADERBOARD");
 		System.out.println("(4) END");
-		int x = s.nextInt();
+		x = s.nextInt();
+		quit = 0;
 		switch(x) {
 		case 1:
 			start(s);
 		break;
 		case 2: HelpMe.showInstructions();
-			Scanner scanner = new Scanner(System.in);
-			while(!quit.equals("q") || !quit.equals("Q")){
-				System.out.print("\nPlease press q to quit back to the main menu: ");
-				quit = scanner.nextLine();
-				if(quit.equals("q") || quit.equals("Q")){
+			while(quit != 5){
+				System.out.print("\nPlease press 5 to quit back to the main menu: ");
+				quit = scanner.nextInt();
+				if(quit == 5){
 					Driver.main(new String[0]);
+					break;
 				}
+
+
 			}
 			break;
 		case 3:
 				Leaderboard.load();
 				System.out.println(Leaderboard.printLeaders());
-			Scanner scanner1 = new Scanner(System.in);
-			while(!quit.equals("q") || !quit.equals("Q")) {
-				System.out.print("\nPlease press q to quit back to the main menu: ");
-				quit = scanner1.nextLine();
-				if (quit.equals("q") || quit.equals("Q")) {
+			while(quit != 5) {
+				System.out.print("\nPlease press 5 to quit back to the main menu: ");
+				quit = scanner.nextInt();
+				if (quit == 5) {
 					Driver.main(new String[0]);
+					break;
 				}
+
 			}
 			break;
-		case 4: break;
+		case 4:
+
+			break;
 		default: Driver.main(new String[0]);
 		}
 	}

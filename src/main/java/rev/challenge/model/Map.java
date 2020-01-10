@@ -95,6 +95,7 @@ public class Map {
 				right();
 			break;
 		default:
+			reduceScore();
 			break;
 		}
 		checkWeapon();
@@ -107,7 +108,7 @@ public class Map {
 
 	private void down() {
 		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(false);
+		spaces[currentY][currentX].setVisited(true);
 		if(currentY < 4) {
 			++currentY;
 		}
@@ -156,7 +157,7 @@ public class Map {
 		}
 	}
 	private void win() {
-		if(complete==rooms) {
+		if(complete==4) {
 			System.out.println("you win");
 			printScore();
 			Leaderboard.load();
