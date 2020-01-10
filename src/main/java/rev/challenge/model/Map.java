@@ -13,6 +13,7 @@ public class Map {
 	private int currentY;
 	private int rooms;
 	private int complete;
+	//change back to 30
 	private int score=30;
 	public static String name = "";
 
@@ -81,25 +82,32 @@ public class Map {
 		case "w":
 			if(currentY != 0)
 				up();
+				checkWeapon();
+				reduceScore();
 			break;
 		case "s":
 			if(currentY <= 4)
 				down();
+				checkWeapon();
+				reduceScore();
 			break;
 		case "a":
 			if(currentX != 0)
 				left();
+				checkWeapon();
+				reduceScore();
 			break;
 		case "d":
 			if(currentX != 5)
 				right();
+				checkWeapon();
+				reduceScore();
 			break;
 		default:
 			reduceScore();
 			break;
 		}
-		checkWeapon();
-		reduceScore();
+
 		if(score==0) {
 			System.out.println("you lose, your score is 0");
 			System.exit(0);
@@ -157,7 +165,7 @@ public class Map {
 		}
 	}
 	private void win() {
-		if(complete==4) {
+		if(complete==rooms) {
 			System.out.println("you win");
 			printScore();
 			Leaderboard.load();
