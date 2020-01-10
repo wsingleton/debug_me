@@ -103,9 +103,12 @@ public class Map {
 		spaces[++currentY][currentX].setCurrent(true);
 	}
 
+
+	// fix the up funstion 
 	private void up() {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
+		spaces[--currentY][currentX].setCurrent(true);
 	}
 
 	private void right() {
