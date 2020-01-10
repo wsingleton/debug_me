@@ -99,25 +99,26 @@ public class Map {
 
 	private void down() {
 		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(false);
-		spaces[++currentY][currentX].setCurrent(true);
+		spaces[currentY][currentX].setVisited(true);
+		spaces[--currentY][currentX].setCurrent(true);
 	}
 
 	private void up() {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
+		spaces[++currentY][currentX].setCurrent(true);
 	}
 
 	private void right() {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
-		spaces[currentY][++currentX].setCurrent(true);
+		spaces[currentY][--currentX].setCurrent(true);
 	}
 
 	private void left() {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
-		spaces[currentY][--currentX].setCurrent(true);
+		spaces[currentY][++currentX].setCurrent(true);
 	}
 
 	public void consequences(Scanner s) {
