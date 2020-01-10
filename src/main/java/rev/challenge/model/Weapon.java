@@ -33,5 +33,12 @@ public class Weapon {
 			return new Weapon();
 		}
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Weapon{" +
+				"name='" + name + '\'' +
+				", damage=" + damage +
+				'}';
+	}
 }
