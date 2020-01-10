@@ -31,17 +31,19 @@ public class Menu {
 		System.out.println("(4) END");
 		int x = s.nextInt();
 		switch(x) {
-		case 1: start(s);
-		break;
-		case 2: System.out.println("TODO: INSTRUCTIONS");
-		showInstructions();
+		case 1:
+			start(s);
+			break;
+		case 2:
+			System.out.println("TODO: INSTRUCTIONS");
+			showInstructions();
+			Driver.appRunning = true;
 		break;
 		case 3:
 			System.out.println(Leaderboard.printLeaders());
-			Driver.main(new String[0]);
+			Driver.appRunning = false;
 			break;
-		case 4: break;
-		default: Driver.main(new String[0]);
+		default: Driver.appRunning = false;
 		}
 	}
 	private static void start(Scanner s) {
@@ -49,7 +51,7 @@ public class Menu {
 
 		System.out.println("Enter your name");
 		System.out.print("> ");
-		String name = s.nextLine();
+		String name = s.next();
 		p.setName(name);
 		p.setHealth(500.0f);
 		System.out.println("Here is the Map");
@@ -61,7 +63,7 @@ public class Menu {
 			m.consequences(s);
 		}
 		System.out.println("you lose");
-		System.exit(0);
+		Driver.appRunning = false;
 	}
 
 }
