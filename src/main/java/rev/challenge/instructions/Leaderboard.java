@@ -57,10 +57,8 @@ public class Leaderboard {
 	public static void add(User u) {
 		leaders.add(u);
 		organize();
-		for (User user : leaders) {
-			if (user.getPlace() > 10) {
-				leaders.remove(user);
-			}
+		while (leaders.size()>10) {
+			leaders.remove(10);
 		}
 	}
 
