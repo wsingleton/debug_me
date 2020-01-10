@@ -5,7 +5,10 @@ public class Player {
 	private String name;
 	private float health;
 	private Weapon weapon;
-	
+
+	public Player() {
+		this.weapon=Weapon.makeWeapon("");
+	}
 
 	public Weapon getWeapon() {
 		return weapon;
@@ -25,7 +28,5 @@ public class Player {
 	public void setHealth(float d) {
 		this.health = d;
 	}
-	public Player() {
-		this.weapon=Weapon.makeWeapon("");
-	}
+
 }

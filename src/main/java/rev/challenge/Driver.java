@@ -2,6 +2,7 @@ package rev.challenge;
 
 import java.util.Scanner;
 
+import rev.challenge.instructions.Leaderboard;
 import rev.challenge.instructions.Menu;
 
 public class Driver {
@@ -10,9 +11,9 @@ public class Driver {
 		Menu.logo();
 		Menu.menu(scan);
 		scan.close();
-//		Leaderboard.initialize();
-//		Leaderboard.load();
-//		System.out.println(Leaderboard.printLeaders());
+		Leaderboard.initialize();
+		Leaderboard.load();
+		System.out.println(Leaderboard.printLeaders());
 	}
 	
 
