@@ -140,15 +140,14 @@ public class Map {
 	}
 
 	public void consequences(Scanner s) {
-		if(spaces[currentY][currentX] instanceof Room) {
-			if(((Room)spaces[currentY][currentX]).getEnemy()!=null) {
-				Battle.battle(player, ((Room)spaces[currentY][currentX]).getEnemy(), s);
-				complete++;
-			win();
-			}
-		if(spaces[currentY][currentX].getWeapon()!=null)
+		if (spaces[currentY][currentX].getWeapon() != null)
 			player.setWeapon(spaces[currentY][currentX].getWeapon());
-		
+		if(spaces[currentY][currentX] instanceof Room) {
+			if (((Room) spaces[currentY][currentX]).getEnemy() != null) {
+				Battle.battle(player, ((Room) spaces[currentY][currentX]).getEnemy(), s);
+				complete++;
+				win();
+			}
 		}
 	}
 	private void win() {
