@@ -8,6 +8,8 @@ import rev.challenge.model.Player;
 
 public class Menu {
 	public static String quit = "";
+	public static String name = "";
+
 
 
 	public static void logo() {
@@ -61,9 +63,11 @@ public class Menu {
 		}
 	}
 	private static void start(Scanner s) {
+		s.nextLine();
 		System.out.println("what is your name?");
+		name = s.nextLine();
 		Player p = new Player();
-		p.setName(s.nextLine());
+		p.setName(name);
 		p.setHealth(500.0f);
 		System.out.println("here is the Map");
 		Map m = new Map(p);
