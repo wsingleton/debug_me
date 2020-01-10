@@ -10,7 +10,8 @@ public class Battle {
 	public static void battle(Player p, Enemy e, Scanner scan) {
 		while (e.getHealth() > 0&&p.getHealth()>0) {
 			System.out.println("heal or attack");
-			String str = scan.next();
+			String str = scan.nextLine();
+			str = str.toLowerCase();
 			if (str.equals("heal")) {
 				playerHeal(p);
 			} else if (str.equals("attack")) {

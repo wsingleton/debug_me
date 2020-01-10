@@ -22,7 +22,7 @@ public class Weapon {
 	}
 	private Weapon() {
 		name="fists";
-		damage=1;
+		damage=20;
 	}
 	
 	public static Weapon makeWeapon(String w) {
