@@ -43,8 +43,9 @@ public class Menu {
 	}
 	private static void start(Scanner s) {
 		System.out.println("what is your name?");
+		String name = s.next();
 		Player p = new Player();
-		p.setName(s.nextLine());
+		p.setName(name);
 		p.setHealth(500.0f);
 		System.out.println("here is the Map");
 		Map m = new Map(p);
