@@ -100,7 +100,8 @@ public class Map {
 
 	private void down() {
 		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(false);
+		// set visited = true for move down
+		spaces[currentY][currentX].setVisited(true);
 		spaces[++currentY][currentX].setCurrent(true);
 	}
 
