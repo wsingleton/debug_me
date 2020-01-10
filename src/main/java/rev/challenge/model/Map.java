@@ -75,16 +75,16 @@ public class Map {
 	public void move(String s) {
 		switch (s.toLowerCase()) {
 		case "w":
-			down();
-			break;
-		case "s":
 			up();
 			break;
+		case "s":
+			down();
+			break;
 		case "a":
-			right();
+			left();
 			break;
 		case "d":
-			left();
+			right();
 			break;
 		default:
 			break;
@@ -100,7 +100,7 @@ public class Map {
 	private void down() {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
-		spaces[++currentY][currentX].setCurrent(true);
+		spaces[--currentY][currentX].setCurrent(true);
 	}
 
 	private void up() {
