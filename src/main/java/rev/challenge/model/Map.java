@@ -98,26 +98,47 @@ public class Map {
 	}
 
 	private void down() {
-		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(false);
-		spaces[++currentY][currentX].setCurrent(true);
+			spaces[currentY][currentX].setCurrent(false);
+			spaces[currentY][currentX].setVisited(true);
+			if(currentY >= 4){
+				spaces[4][currentX].setCurrent(true);
+			}
+			else {
+				spaces[++currentY][currentX].setCurrent(true);
+			}
 	}
 
 	private void up() {
-		spaces[currentY][currentX].setCurrent(false);
-		spaces[currentY][currentX].setVisited(true);
+			spaces[currentY][currentX].setCurrent(false);
+			spaces[currentY][currentX].setVisited(true);
+			if (currentY <= 0){
+				spaces[0][currentX].setCurrent(true);
+			}
+			else {
+				spaces[--currentY][currentX].setCurrent(true);
+			}
 	}
 
 	private void right() {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
-		spaces[currentY][++currentX].setCurrent(true);
+		if(currentX >= 4){
+			spaces[currentY][4].setCurrent(true);
+		}
+		else {
+			spaces[currentY][++currentX].setCurrent(true);
+		}
 	}
 
 	private void left() {
 		spaces[currentY][currentX].setCurrent(false);
 		spaces[currentY][currentX].setVisited(true);
-		spaces[currentY][--currentX].setCurrent(true);
+		if (currentX <= 0){
+			spaces[currentY][0].setCurrent(true);
+		}
+		else {
+			spaces[currentY][--currentX].setCurrent(true);
+		}
 	}
 
 	public void consequences(Scanner s) {
