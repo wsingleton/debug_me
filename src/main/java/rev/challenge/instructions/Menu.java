@@ -36,10 +36,12 @@ public class Menu {
 			start(s);
 		break;
 		case 3:
-			System.out.println(Leaderboard.printLeaders());
+//			System.out.println(Leaderboard.printLeaders());
 //			Driver.main(new String[0]);
 //			Leaderboard.initialize(); // to get registered leaders.
 //			Leaderboard.printLeaders();
+//			Leaderboard.initialize();
+			Leaderboard.printLeaders();
 //
 			break;
 		case 4: break;

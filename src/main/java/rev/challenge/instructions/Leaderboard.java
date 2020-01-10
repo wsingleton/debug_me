@@ -14,12 +14,12 @@ import rev.challenge.model.User;
 public class Leaderboard {
 
 //	private static List<User> leaders;
-	private static List<User> leaders; // changing to public to make it accessible
+	public static ArrayList<User> leaders; // changing to ArrayList to make it accessible
 
 	@SuppressWarnings("unchecked")
 	public static void load() {
-		try (ObjectInputStream input = new ObjectInputStream(new FileInputStream("./leader.txt"));) {
-			leaders = (List<User>) input.readObject();
+		try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(".src/main/resources/leader.txt"));) {
+			leaders = (ArrayList<User>) input.readObject();
 		} catch (IOException e) {
 			initialize();
 			e.printStackTrace();
