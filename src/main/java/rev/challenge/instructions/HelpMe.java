@@ -2,6 +2,7 @@ package rev.challenge.instructions;
 
 public class HelpMe {
 
+	// add no args constructor and take of static key from showInstructions
 	public HelpMe(){
 		super();
 	}
