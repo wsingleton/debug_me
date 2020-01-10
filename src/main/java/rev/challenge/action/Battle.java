@@ -3,9 +3,12 @@ package rev.challenge.action;
 import java.util.Scanner;
 
 import rev.challenge.model.Enemy;
+import rev.challenge.model.Map;
 import rev.challenge.model.Player;
 
 public class Battle {
+
+	private static Map m = new Map();
 
 	public static void battle(Player p, Enemy e, Scanner scan) {
 		while (e.getHealth() > 0&&p.getHealth()>0) {
@@ -17,6 +20,7 @@ public class Battle {
 				playerAttack(p, e);
 			} else {
 				System.out.println("invalid");
+				m.reduceScore();
 			}
 			EnemyAttack(p, e);
 		}
